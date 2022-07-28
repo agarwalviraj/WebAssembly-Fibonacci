@@ -1,7 +1,7 @@
-import { readFileSync } from "https://deno.land/std@$STD_VERSION/fs/mod.ts";
+const fs = require("fs");
 
 (async () => {
-  const fibonacciWASM = readFileSync("./fibonacci.wasm");
+  const fibonacciWASM = fs.readFileSync("./fibonacci.wasm");
 
   const fibonacci = await WebAssembly.instantiate(
     new Uint8Array(fibonacciWASM),
